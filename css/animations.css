@@ -1,81 +1,65 @@
-/* Entrada cinematográfica da imagem */
+/* Preparação da abertura cinematográfica */
 
-@keyframes hero-image-reveal {
-  from {
-    transform: scale(1.09);
-    filter: brightness(0.5);
-  }
-
-  to {
-    transform: scale(1.03);
-    filter: brightness(1);
-  }
-}
-
-/* Entrada dos textos */
-
-@keyframes content-reveal {
-  from {
-    opacity: 0;
-    transform: translateY(2.5rem);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Crescimento da linha de scroll */
-
-@keyframes line-reveal {
-  from {
-    transform: scaleX(0);
-  }
-
-  to {
-    transform: scaleX(1);
-  }
+.hero__media {
+  overflow: hidden;
 }
 
 .hero__image {
-  animation: hero-image-reveal 4.5s
-    cubic-bezier(0.16, 1, 0.3, 1) both;
-
+  transform-origin: center center;
   will-change: transform, filter;
 }
 
 .hero__location,
-.hero__title,
 .hero__description,
 .hero__scroll {
   opacity: 0;
-
-  animation: content-reveal 1.6s
-    cubic-bezier(0.16, 1, 0.3, 1) forwards;
-
   will-change: opacity, transform;
 }
 
-.hero__location {
-  animation-delay: 1.1s;
+/* Máscara das linhas do título */
+
+.hero__title-mask {
+  display: block;
+  overflow: hidden;
 }
 
-.hero__title {
-  animation-delay: 1.7s;
+.hero__title-text {
+  display: block;
+  will-change: transform;
 }
 
-.hero__description {
-  animation-delay: 2.5s;
-}
-
-.hero__scroll {
-  animation-delay: 3.3s;
+.hero__title-text--outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(244, 241, 235, 0.75);
 }
 
 .hero__scroll-line {
-  transform-origin: left;
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
 
-  animation: line-reveal 1.8s
-    cubic-bezier(0.16, 1, 0.3, 1) 3.7s both;
+/* Acessibilidade */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .hero__location,
+  .hero__description,
+  .hero__scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero__title-text,
+  .hero__image,
+  .hero__scroll-line {
+    transform: none !important;
+    filter: none !important;
+  }
 }

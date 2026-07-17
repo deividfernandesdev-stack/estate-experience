@@ -172,7 +172,10 @@ textarea {
 /* Seção do apartamento */
 
 .living-space {
-  padding: clamp(7rem, 12vw, 12rem) var(--container-padding);
+  padding:
+    clamp(7rem, 12vw, 12rem)
+    var(--container-padding)
+    clamp(3rem, 5vw, 5rem);
 }
 
 .living-space__intro {
@@ -254,6 +257,93 @@ textarea {
   font-size: 0.95rem;
   line-height: 1.7;
 }
+/* Seção da varanda */
+
+.balcony-showcase {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+
+  padding:
+    clamp(3rem, 5vw, 5rem)
+    var(--container-padding)
+    clamp(7rem, 12vw, 12rem);
+}
+
+.balcony-showcase__media {
+  overflow: hidden;
+  border-radius: var(--radius-medium);
+}
+
+.balcony-showcase__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.balcony-showcase__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.balcony-showcase__title {
+  font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+}
+
+.balcony-showcase__title span {
+  display: block;
+  color: var(--color-text-muted);
+}
+
+.balcony-showcase__description {
+  max-width: 460px;
+
+  color: var(--color-text-muted);
+
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.balcony-showcase__features {
+  display: grid;
+  gap: 1.5rem;
+
+  margin-top: 1rem;
+  padding-top: 2rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.balcony-showcase__feature {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.balcony-showcase__feature-number {
+  color: var(--color-accent);
+
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.balcony-showcase__feature p {
+  margin: 0;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
 
 /* Responsividade */
 
@@ -298,13 +388,6 @@ textarea {
   gap: 1.5rem;
 }
 }
-.hero__title span {
-  display: block;
-
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(244, 241, 235, 0.75);
-}
-
 /* Informações principais */
 
 .property-overview {
